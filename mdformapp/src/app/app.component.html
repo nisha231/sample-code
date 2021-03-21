@@ -1,0 +1,63 @@
+<form [formGroup]="personForm"(ngSubmit)="onSubmit()"novalidate>
+<p>
+<label for="firstname">First Name</label>
+<input type="text"id="firstname"name="firstname"formControlName="firstname">
+</p>
+<div *ngIf="!firstname?.valid && (firstname?.dirty || firstname?.touched)" class="error">
+<div [hidden]="!firstname?.errors?.required">
+First name is required
+</div>
+<div [hidden]="!firstname?.errors?.minlength(3)">
+Minimum length is 3
+</div>
+</div>
+ 
+<p>
+<label for="lastname">Last Name</label>
+<input type="text"id="lastname"name="lastname"formControlName="lastname">
+</p>
+<div *ngIf="!lastname?.valid && (lastname?.dirty || lastname?.touched)" class="error">
+<div [hidden]="!lastname?.errors?.required">
+  Last name is required
+</div>
+<div [hidden]="!lastname?.errors?.maxlength(15)">
+  Maximum length allowed is 15
+</div>
+<div [hidden]="!lastname?.errors?.pattern">
+    Only characters are allowed
+</div>
+</div>
+<p>
+<label for="email">Email</label>
+<input type="text"id="email"name="email"formControlName="email">
+</p>
+<div *ngIf="!email?.valid && (email?.dirty || email?.touched)" class="error">
+<div [hidden]="!email?.errors?.required">
+    email is required
+</div>
+<div [hidden]="!email?.errors?.email">
+Invalid Email id
+</div>
+</div>
+<p>
+<label for="gender">Gender</label>
+<input type="radio"name="gender"id="gender"value="male"formControlName="gender"> Male
+<input type="radio"name="gender"id="gender"value="female"formControlName="gender"> Female
+</p>
+<div *ngIf="!gender?.valid && (gender?.dirty || gender?.touched)" class="error">
+<div [hidden]="!gender?.errors?.required">
+    gender is required
+</div>
+</div>
+<p>
+<button type="submit"[disabled]="!personForm.valid">Submit</button>
+</p>
+<p>
+  {​​​​​​​​{​​​​​​​​personForm.valid}​​​​​​​​}​​​​​​​​
+</p>
+</form>
+  
+
+
+    
+

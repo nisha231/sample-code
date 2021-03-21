@@ -1,0 +1,7 @@
+var employee: [number, string, string] = [101, "Mike", "Admin"];
+
+ 
+
+console.log("EmpId : "+employee[0]);
+console.log("EmpName : "+employee[1]);
+console.log("EmpName : "+employee[2]);
